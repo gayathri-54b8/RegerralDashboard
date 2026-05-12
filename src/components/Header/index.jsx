@@ -4,23 +4,25 @@ const Header = () => {
   return (
     <nav className="navbar">
 
-      <h1 className="logo">
-        ReferralApp
-      </h1>
+      <div className="logo-section">
+
+        <h1 className="logo">
+          Go Business
+        </h1>
+
+        <span className="dot"></span>
+
+      </div>
 
       <ul className="nav-links">
+
         <li>Home</li>
         <li>About Us</li>
         <li>Courses</li>
         <li>Projects</li>
         <li>Contact</li>
-      </ul>
 
-      <input
-        type="search"
-        placeholder="Search"
-        className="search"
-      />
+      </ul>
 
       <button className="try-btn">
         Try for free

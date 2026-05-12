@@ -1,4 +1,33 @@
 .referral-box{
+  flex:1;
+}
+
+.referral-box h3{
+  color:#4a4a6a;
+  margin-bottom:15px;
+  font-size:28px;
+}
+
+.referral-input{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.referral-input p{
+  border:1px solid gray;
+  padding:15px 20px;
+  border-radius:30px;
   background:white;
-  padding:20px;
+  min-width:350px;
+}
+
+.copy-btn{
+  background:#6c63ff;
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:30px;
+  cursor:pointer;
 }

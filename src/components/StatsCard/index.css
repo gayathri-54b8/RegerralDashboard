@@ -1,5 +1,22 @@
 .card{
-  background:white;
-  padding:20px;
-  border-radius:10px;
+  background:linear-gradient(to right,#7b4dff,#4a7dff);
+  border-radius:12px;
+  padding:25px;
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.icon{
+  font-size:42px;
+}
+
+.card h3{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:18px;
 }

@@ -2,6 +2,40 @@ import {useEffect, useState} from "react"
 import Pagination from "../Pagination"
 import "./index.css"
 
+const namesList = [
+  "Pranjal",
+  "Paritosh",
+  "Palav",
+  "Moumita",
+  "Mitesh",
+  "Srinivas",
+  "Hritik",
+  "Abc",
+  "Xyz",
+  "Bcd",
+  "Rahul",
+  "Kiran",
+  "Sneha",
+  "David",
+  "Ramesh",
+  "Anjali",
+  "Vikram",
+  "Rohit",
+  "Pooja",
+  "Suresh",
+  "Akash",
+  "Deepak",
+  "Meena",
+  "Ritika",
+  "Ajay",
+  "Keerthi",
+  "Aman",
+  "Karthik",
+  "Nithin",
+  "Priya",
+  "Teja"
+]
+
 const ReferralTable = () => {
 
   const [data, setData] = useState([])
@@ -20,12 +54,23 @@ const ReferralTable = () => {
 
     const jsonData = await response.json()
 
-    setData(jsonData)
+    
+
+    const updatedData = jsonData.map((each, index) => ({
+      ...each,
+      name: namesList[index]
+    }))
+
+    setData(updatedData)
   }
+
+  
 
   const filteredData = data.filter(each =>
     each.name.toLowerCase().includes(search.toLowerCase())
   )
+
+  // PAGINATION
 
   const rowsPerPage = 10
 
@@ -38,60 +83,92 @@ const ReferralTable = () => {
   const totalPages = Math.ceil(filteredData.length / rowsPerPage)
 
   return (
-    <div>
+    <div className="table-container">
 
-      <input
-        type="search"
-        placeholder="Search Name"
-        value={search}
-        onChange={e => {
-          setSearch(e.target.value)
-          setPage(1)
-        }}
-      />
+      <div className="table-header">
 
-      {currentData.length === 0 ? (
-        <p>No matching data</p>
-      ) : (
-        <>
-          <table>
+        <div className="entries-box">
 
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Service Name</th>
-                <th>Date</th>
-                <th>Profit</th>
-              </tr>
-            </thead>
+          <p>Show</p>
 
-            <tbody>
+          <select>
+            <option>10</option>
+          </select>
 
-              {currentData.map(each => (
-                <tr key={each.id}>
+          <p>entries</p>
 
-                  <td>{each.name}</td>
+        </div>
 
-                  <td>{each.serviceName}</td>
+        <div className="search-table-box">
 
-                  <td>{each.date}</td>
+          <label>Search:</label>
 
-                  <td>{each.profit}</td>
-
-                </tr>
-              ))}
-
-            </tbody>
-
-          </table>
-
-          <Pagination
-            page={page}
-            totalPages={totalPages}
-            setPage={setPage}
+          <input
+            type="search"
+            value={search}
+            onChange={e => {
+              setSearch(e.target.value)
+              setPage(1)
+            }}
           />
-        </>
+
+        </div>
+
+      </div>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Name</th>
+
+            <th>Service Name</th>
+
+            <th>Date</th>
+
+            <th>Profit</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          {currentData.map(each => (
+
+            <tr key={each.user_id}>
+
+              <td>{each.name}</td>
+
+              <td>{each.service_name}</td>
+
+              <td>{each.date}</td>
+
+              <td>
+                ${Number(each.profit).toLocaleString()}
+              </td>
+
+            </tr>
+
+          ))}
+
+        </tbody>
+
+      </table>
+
+      {currentData.length === 0 && (
+        <p className="no-data">
+          No matching data
+        </p>
       )}
+
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        setPage={setPage}
+      />
 
     </div>
   )

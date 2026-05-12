@@ -1,0 +1,9 @@
+.nav-links{
+    display:flex;
+    list-style-type:none;
+
+}
+button{
+    background-color: blue;
+    color:white;
+}

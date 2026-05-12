@@ -1,24 +1,33 @@
-// import {Link} from "react-router"
-// import "./index.css"
-// const Header=()=>{
-//     return (
-//         <>
-//          <header>
-//             <nav><h3>Go Business</h3></nav>
-//             <div>
-//             <ul className="nav-links">
-//                 <Link to="/"><li>Home</li></Link>
-//                 <Link to="/about"><li>About Us</li></Link>
-//                 <Link to="/courses"><li>Courses</li></Link>
-//                 <Link to="/projects"><li>Projects</li></Link>
-//                 <Link to="/contact"><li>Contact</li></Link>
-//             </ul>
-//             </div>
-//             <div>
-//                 <button>Try For Free</button>
-//             </div>
-//          </header>
-//         </>
-//     )
-// }
-// export default Header
+import "./index.css"
+
+const Header = () => {
+  return (
+    <nav className="navbar">
+
+      <h1 className="logo">
+        ReferralApp
+      </h1>
+
+      <ul className="nav-links">
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Courses</li>
+        <li>Projects</li>
+        <li>Contact</li>
+      </ul>
+
+      <input
+        type="search"
+        placeholder="Search"
+        className="search"
+      />
+
+      <button className="try-btn">
+        Try for free
+      </button>
+
+    </nav>
+  )
+}
+
+export default Header
